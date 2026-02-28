@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-white font-body antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading tracking-wider uppercase;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-8 py-3 bg-accent text-black font-heading font-bold tracking-widest text-sm uppercase transition-all duration-300 rounded-full relative overflow-hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+    border-radius: 9999px;
+  }
+
+  .btn-primary:hover::before {
+    transform: translateX(100%);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), 0 0 40px rgba(0, 255, 255, 0.15);
+  }
+
+  .btn-outline {
+    @apply px-8 py-3 border border-accent text-accent font-heading font-bold tracking-widest text-sm uppercase rounded-full relative overflow-hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 0;
+  }
+
+  .btn-outline::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #00FFFF;
+    border-radius: 9999px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: -1;
+  }
+
+  .btn-outline:hover::before {
+    transform: scaleX(1);
+  }
+
+  .btn-outline:hover {
+    color: #000;
+    border-color: #00FFFF;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.4);
+  }
+
+  .section-divider {
+    @apply flex items-center gap-6 w-full;
+  }
+
+  .section-divider::after {
+    content: '';
+    @apply flex-1 h-px bg-gray-700;
+  }
+
+  .section-label-right {
+    @apply text-gray-600 text-xs font-heading tracking-[0.3em] uppercase;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00FFFF;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
+
+/* Hide scrollbar for horizontal scroll sections */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CINEMATIC HERO STYLES
+   ═══════════════════════════════════════════════════════════ */
+
+.cinematic-hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 45%,
+      #0a0a2e 0%,
+      #050515 35%,
+      #020208 60%,
+      #000000 100%);
+}
+
+.cinematic-title {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 8vw, 7rem);
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  line-height: 1;
+  text-align: center;
+  text-shadow:
+    0 0 20px rgba(0, 180, 255, 0.4),
+    0 0 60px rgba(0, 180, 255, 0.15),
+    0 0 120px rgba(80, 80, 255, 0.08);
+}
+
+.cinematic-subtitle {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
+  font-size: clamp(0.65rem, 1.5vw, 1rem);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(140, 200, 255, 0.75);
+  text-align: center;
+  margin-top: 0.75rem;
+  text-shadow: 0 0 15px rgba(0, 180, 255, 0.3);
+}
+
+.cinematic-date {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.55rem, 1.2vw, 0.8rem);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(0, 230, 180, 0.7);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 12px rgba(0, 230, 180, 0.3);
+}
+
+.cinematic-glass-btn {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(200, 230, 255, 0.9);
+  padding: 0.85rem 2.5rem;
+  border: 1px solid rgba(100, 180, 255, 0.25);
+  border-radius: 999px;
+  background: rgba(20, 40, 80, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cinematic-glass-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: radial-gradient(circle at 50% 50%,
+      rgba(0, 180, 255, 0.12) 0%,
+      transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.cinematic-glass-btn:hover {
+  border-color: rgba(0, 200, 255, 0.5);
+  color: #ffffff;
+  box-shadow:
+    0 0 20px rgba(0, 180, 255, 0.2),
+    0 0 60px rgba(0, 180, 255, 0.08),
+    inset 0 0 20px rgba(0, 180, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.cinematic-glass-btn:hover::before {
+  opacity: 1;
+}
+
+/* Timer */
+.cinematic-timer-unit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(100, 180, 255, 0.15);
+  background: rgba(10, 20, 50, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@media (min-width: 640px) {
+  .cinematic-timer-unit {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .cinematic-timer-unit {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+}
+
+.cinematic-timer-value {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #ffffff;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 640px) {
+  .cinematic-timer-value {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .cinematic-timer-value {
+    font-size: 2.25rem;
+  }
+}
+
+.cinematic-timer-label {
+  margin-top: 0.4rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(140, 200, 255, 0.5);
+}
+
+.cinematic-timer-sep {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: rgba(0, 200, 255, 0.3);
+  margin-top: -1.25rem;
+}
+
+.cinematic-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8rem;
+  z-index: 30;
+  pointer-events: none;
+  background: linear-gradient(to top, #000000 0%, transparent 100%);
+}
