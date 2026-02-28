@@ -97,9 +97,6 @@ export const Navbar = () => {
 
                     {/* Right — Actions (justified to end) */}
                     <div className="hidden lg:flex items-center gap-2 justify-end">
-                        <button className="px-4 py-1.5 text-[11px] font-heading tracking-widest rounded-full border border-white/15 text-white hover:bg-accent hover:text-black hover:border-accent hover:shadow-[0_0_16px_rgba(0,255,255,0.3)] transition-all duration-300">
-                            LOGIN
-                        </button>
                     </div>
 
                     {/* Mobile — Toggle (spans to right on small screens) */}
@@ -141,11 +138,7 @@ export const Navbar = () => {
                                     </a>
                                 );
                             })}
-                            <div className="w-full border-t border-white/[0.08] mt-2 pt-3 px-4">
-                                <button className="w-full py-2.5 bg-accent/10 text-accent text-sm font-heading tracking-widest rounded-xl border border-accent/20 hover:bg-accent hover:text-black transition-all duration-300">
-                                    LOGIN
-                                </button>
-                            </div>
+
                         </div>
                     </motion.div>
                 )}
