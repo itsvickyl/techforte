@@ -1,13 +1,6 @@
 import { useRef, useMemo, useEffect, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
-import {
-    EffectComposer,
-    Bloom,
-    Vignette,
-    ChromaticAberration,
-} from "@react-three/postprocessing";
-import { BlendFunction } from "postprocessing";
 import { motion } from "framer-motion";
 import Particles from "./Particles";
 
@@ -370,29 +363,7 @@ function CameraController() {
 //  POSTPROCESSING — Bloom + Vignette + ChromaticAberration
 // ═══════════════════════════════════════════════════════════
 
-function PostEffects() {
-    return (
-        <EffectComposer>
-            <Bloom
-                intensity={0.6}
-                luminanceThreshold={0.15}
-                luminanceSmoothing={0.9}
-                mipmapBlur
-            />
-            <Vignette
-                offset={0.3}
-                darkness={0.6}
-                blendFunction={BlendFunction.NORMAL}
-            />
-            <ChromaticAberration
-                offset={new THREE.Vector2(0.0005, 0.0005)}
-                blendFunction={BlendFunction.NORMAL}
-                radialModulation={false}
-                modulationOffset={0.5}
-            />
-        </EffectComposer>
-    );
-}
+
 
 // ═══════════════════════════════════════════════════════════
 //  COUNTDOWN TIMER

@@ -4,9 +4,9 @@ import { ArrowLeft, ChevronDown, ShieldCheck, AlertTriangle, BookOpen, Ban } fro
 import { Link } from "react-router-dom";
 
 interface RuleSection {
-    icon: React.ElementType;
+    icon: any;
     title: string;
-    color: string;
+    color: 'accent' | 'cyan' | 'purple' | 'red';
     rules: string[];
 }
 
